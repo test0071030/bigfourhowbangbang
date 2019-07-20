@@ -1,21 +1,42 @@
-var bang=1;
+var bang=0;
 var fee = [1.63, 2.1, 2.89, 3.79, 4.42, 4.83];
 var index_number = [0,240,660,1000,1400,2000];
 
 $(document).ready(function(){
   
   $("#season_not_summer").click(function() {
+    if (bang!=1){
+     $("#not_summer_calculate").show(1);
+     $("#summer_calculate").hide(1);
+     $("#mix_calculate").hide(1);
+    }
     fee = [1.63, 2.1, 2.89, 3.79, 4.42, 4.83];
     bang=1;
+    $("#start_calculate").show(1);
+
   })
   
   $("#season_summer").click(function() {
+    if (bang!=2){
+     $("#not_summer_calculate").hide(1);
+     $("#summer_calculate").show(1);
+     $("#mix_calculate").hide(1);
+    }
+
     fee = [1.63, 2.38, 3.52, 4.61, 5.42, 6.13];
     bang=2;
+    $("#start_calculate").show(1);
   })
   
   $("#season_mix").click(function() {
+    if (bang!=3){
+     $("#not_summer_calculate").hide(1);
+     $("#summer_calculate").hide(1);
+     $("#mix_calculate").show(1);
+    }
+
     bang=3;
+    $("#start_calculate").show(1);
   })
 
   $("#start_calculate").click(function() {

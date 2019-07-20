@@ -1,0 +1,21 @@
+#not_summer_calculate {
+  display:none;
+  position:absolute;
+}
+
+#summer_calculate {
+  display:none;
+  position:absolute;
+}
+
+#mix_calculate {
+  display:none;
+  position:absolute;
+}
+
+#start_calculate {
+  display:none;
+  position:absolute;
+}
+
+
