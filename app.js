@@ -25,7 +25,7 @@ $(document).ready(function(){
     var pinch_this=$('#pinch_this').val();
     var king_this=$('#king_this').val();
     
-    if (bang=2){
+    if (bang==2){
       var parta=$('#not_summer_part').val();
       var partb=$('#summer_part').val();
       var partall= parta+partb;
