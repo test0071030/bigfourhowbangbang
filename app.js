@@ -1,3 +1,5 @@
+var bang=1;
+
 $(document).ready(function(){
   
   $("#season_not_summer").click(function() {
