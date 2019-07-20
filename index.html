@@ -18,14 +18,20 @@
       <div id="pinch2">品ㄍㄧ這期電表：<input type="number" id="pinch_this"></div>
       <div id="king2">子ㄍㄧ這期電表：<input type="number" id="king_this"></div><br><br>
       
-      <select name="YourLocation">
-       <option value="not_summer">非夏季(夏季以外)</option>
-　     <option value="summer">夏季(6/1~9/30)</option>
-　     <option value="mix">混合(橫跨夏季和非夏季)</option>
-      </select>
+
+       <button type="button" id="season_not_summer">非夏季(夏季以外)</button>
+　     <button type="button" id="season_summer">夏季(6/1~9/30)</button>
+　     <button type="button" id="season_mix">混合(橫跨夏季和非夏季)</button>
+
       
-      <div id="fee_calculate">
-        總度數：<input type="number" id="number_all">
+      <div id="not_summer_calculate">
+        非夏季<br>
+        總度數：<input type="number" id="not_summer_number_all">
+      </div>
+      
+      <div id="summer_calculate">
+        夏季<br>
+        總度數：<input type="number" id="summer_number_all">
       </div>
 
       
