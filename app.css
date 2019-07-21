@@ -13,9 +13,74 @@
   position:absolute;
 }
 
-#start_calculate {
-  display:none;
-  position:absolute;
+.wrong {
+  color:red;
 }
 
+#result {
+  position:absolute;
+  display:none;
+  color:blue;
+  height:30vh;
+  width:100vw;
+  top:70vh;
+  font-size:4.5vh;
+}
+
+body {
+  position:absolute;
+  text-align:center;
+  margin:0;
+  height:100vh;
+  width:100vw;
+}
+
+#block1 {
+  position:absolute;
+  height:40vh;
+  width:100vw;
+  font-size:3vh;
+}
+
+#block2 {
+  position:absolute;
+  height:5vh;
+  width:100vw;
+  font-size:5vh;
+  top:40vh;
+}
+
+#not_summer_calculate {
+  position:absolute;
+  height:15vh;
+  width:100vw;
+  font-size:3vh;
+  top:50vh;
+}
+#summer_calculate {
+  position:absolute;
+  height:15vh;
+  width:100vw;
+  font-size:3vh;
+  top:50vh;
+}
+#mix_calculate {
+  position:absolute;
+  height:15vh;
+  width:100vw;
+  font-size:3vh;
+  top:50vh;
+}
+
+
+#start_calculate {
+  position:absolute;
+  display:none;
+  height:5vh;
+  width:100vw;
+  font-size:4vh;
+  top:65vh;
+  left:0vw;
+
+}
 

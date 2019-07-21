@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <html style="height=100vh; width=100vw; ">
+  <html>
     <head>
       <meta charset="utf-8" />
       <title>電費算起來</title>
@@ -8,41 +8,34 @@
       <link rel="stylesheet" type="text/css" href="app.css"> 
     </head>
     <body>
+      <div id="block1">
       <div id="milk1">乃ㄍㄧ上期電表：<input type="number" id="milk_previous"></div>
       <div id="black1">翹臀隊長上期電表：<input type="number" id="black_previous"></div>
       <div id="pinch1">品ㄍㄧ上期電表：<input type="number" id="pinch_previous"></div>
-      <div id="king1">子ㄍㄧ上期電表：<input type="number" id="king_previous"></div><br><br>
+      <div id="king1">子ㄍㄧ上期電表：<input type="number" id="king_previous"></div><br>
       
       <div id="milk2">乃ㄍㄧ這期電表：<input type="number" id="milk_this"></div>
       <div id="black2">翹臀隊長這期電表：<input type="number" id="black_this"></div>
       <div id="pinch2">品ㄍㄧ這期電表：<input type="number" id="pinch_this"></div>
-      <div id="king2">子ㄍㄧ這期電表：<input type="number" id="king_this"></div><br><br>
+      <div id="king2">子ㄍㄧ這期電表：<input type="number" id="king_this"></div><br>
 
       <div id="sum_fee2">應繳總金額：<input type="number" id="sum_fee"></div>
-
+      </div>
+      
+      <div id="block2">
        <button type="button" id="season_not_summer">非夏季(夏季以外)</button>
 　     <button type="button" id="season_summer">夏季(6/1~9/30)</button>
 　     <button type="button" id="season_mix">混合(橫跨夏季和非夏季)</button>
-
-      
-      <div id="not_summer_calculate">
-        非夏季<br>
-        總度數：<input type="number" id="not_summer_number_all">
-      </div>
-      
-      <div id="summer_calculate">
-        夏季<br>
-        總度數：<input type="number" id="summer_number_all">
       </div>
 
+
+      <div id="not_summer_calculate">非夏季<br>總度數：<input type="number" id="not_summer_number_all"></div>
       
-      <div id="mix_calculate">
-        混合
-        總度數：<input type="number" id="mix_all"><br>
-        夏季天數：<input type="number" id="summer_part"><br>
-        非夏季天數:<input type="number" id="not_summer_part"><br>
-      </div>
+      <div id="summer_calculate">夏季<br>總度數：<input type="number" id="summer_number_all"></div>
+
       
+      <div id="mix_calculate">混合<br>總度數：<input type="number" id="mix_all"><br>夏季天數：<input type="number" id="summer_part"><br>非夏季天數：<input type="number" id="not_summer_part"><br></div>
+
       <button type="button" id="start_calculate">開始計算！</button>
       
       <div id="result">

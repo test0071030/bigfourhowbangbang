@@ -13,7 +13,7 @@ $(document).ready(function(){
     fee = [1.63, 2.1, 2.89, 3.79, 4.42, 4.83];
     bang=1;
     $("#start_calculate").show(1);
-
+    $("#result").hide(1);
   })
   
   $("#season_summer").click(function() {
@@ -26,6 +26,7 @@ $(document).ready(function(){
     fee = [1.63, 2.38, 3.52, 4.61, 5.42, 6.13];
     bang=2;
     $("#start_calculate").show(1);
+    $("#result").hide(1);
   })
   
   $("#season_mix").click(function() {
@@ -37,6 +38,7 @@ $(document).ready(function(){
 
     bang=3;
     $("#start_calculate").show(1);
+    $("#result").hide(1);
   })
 
   $("#start_calculate").click(function() {
@@ -51,6 +53,9 @@ $(document).ready(function(){
     var four_air=[0,0,0,0];
     var four_othersum=0;
     var four_final=[0,0,0,0];
+    var four_final_all=0;
+    var home_allowance=0;
+    var bababa=0;
     
     var milk_previous=parseFloat($('#milk_previous').val());
     var black_previous=parseFloat($('#black_previous').val());
@@ -99,65 +104,143 @@ $(document).ready(function(){
       all_number=parseInt($("#mix_all").val());
     }
 
-    for (i=0;i<=5;i++){
-      
-      if (all_number<=index_number[i+1]){
-        number[i]=all_number-index_number[i];
-        break; 
+    if (all_number>0){
+      if(sum_fee>0){
+        $("#sum_fee2").removeClass("wrong");
+        bababa+=1;
+      }
+      else{
+        $("#sum_fee2").addClass("wrong");
       }
 
-      else{
-       if (i==5){
-          number[5]=all_number-index_number[5];
-          break;
+      if(bang==1){
+        $("#not_summer_calculate").removeClass("wrong");
+      }
+
+      else if(bang==2){
+        $("#summer_calculate").removeClass("wrong");
+      }
+
+      else if(bang==3){
+        $("#mix_calculate").removeClass("wrong");
+      }
+
+      for (i=0;i<=3;i++){
+        if(previous[i]>0 && now[i]>0 && now[i]>=previous[i]){
+          bababa+=1;
+          if(i==0){
+            $("#milk1").removeClass("wrong");
+            $("#milk2").removeClass("wrong");
+          }
+          else if(i==1){
+            $("#black1").removeClass("wrong");
+            $("#black2").removeClass("wrong");
+          }
+          else if(i==2){
+            $("#pinch1").removeClass("wrong");
+            $("#pinch2").removeClass("wrong");
+          }
+          else if(i==3){
+            $("#king1").removeClass("wrong");
+            $("#king2").removeClass("wrong");
+          }
+        }
+
+        else if(i==0){
+         $("#milk1").addClass("wrong");
+         $("#milk2").addClass("wrong");
+        }
+        else if(i==1){
+          $("#black1").addClass("wrong");
+          $("#black2").addClass("wrong");
+        }
+        else if(i==2){
+         $("#pinch1").addClass("wrong");
+         $("#pinch2").addClass("wrong");
+        }
+        else if(i==3){
+         $("#king1").addClass("wrong");
+         $("#king2").addClass("wrong");
+        }
+
+      }
+    }
+
+    else if(bang==1){
+      $("#not_summer_calculate").addClass("wrong");
+    }
+
+    else if(bang==2){
+      $("#summer_calculate").addClass("wrong");
+    }
+
+    else if(bang==3){
+      $("#mix_calculate").addClass("wrong");
+    }
+    console.log(bababa);
+
+    if (bababa==5){
+
+      for (i=0;i<=5;i++){
+      
+        if (all_number<=index_number[i+1]){
+          number[i]=all_number-index_number[i];
+          break; 
         }
 
         else{
-          number[i]=index_number[i+1]-index_number[i];
+          if (i==5){
+            number[5]=all_number-index_number[5];
+            break;
+          }
+
+          else{
+            number[i]=index_number[i+1]-index_number[i];
+          }
+
+        }
+      } 
+
+      for (i=5;i>=0;i--){
+        if (four_sum>number[i]){
+          four_use[i]=number[i];
+          four_sum-=number[i];
         }
 
-      }
-    }
-
-    for (i=5;i>=0;i--){
-      if (four_sum>number[i]){
-        four_use[i]=number[i];
-        four_sum-=number[i];
+        else{
+          four_use[i]=four_sum;
+          break;
+        }
       }
 
-      else{
-        four_use[i]=four_sum;
-        break;
+
+
+
+      for (i=5;i>=0;i--){
+        four_airsum+=four_use[i]*fee[i];
       }
-    }
 
+      four_othersum=sum_fee-four_airsum;
 
-
-
-    for (i=5;i>=0;i--){
-      four_airsum+=four_use[i]*fee[i];
-    }
-
-    four_othersum=sum_fee-four_airsum;
-
-    for (i=0;i<=3;i++){
-      four_air[i]=four_airsum*four_percent[i];
-    }
+      for (i=0;i<=3;i++){
+        four_air[i]=four_airsum*four_percent[i];
+      }
     
-    for (i=0;i<=3;i++){
-      four_final[i]=Math.round(four_air[i]+four_othersum/4);
-    }
+      for (i=0;i<=3;i++){
+        four_final[i]=Math.round(four_air[i]+four_othersum/4);
+        four_final_all+=four_final[i];
+      }
 
-    console.log (four_number);
-    console.log (four_sum);
-    console.log (four_percent);
-    console.log (four_use)
-    console.log (number);
-    console.log (fee);
-    console.log (four_airsum);
-    console.log (four_air);
-    console.log (four_othersum);
-    console.log (four_final); 
+      home_allowance=sum_fee-four_final_all;
+
+
+
+      
+      console.log (four_final);
+      console.log (home_allowance);
+      
+      $("#result").show(1).html("乃ㄍㄧ："+four_final[0]+"元<br>翹臀隊長："+four_final[1]+"元<br>品ㄍㄧ："+four_final[2]+"元<br>子ㄍㄧ："+four_final[3]+"元<br>家費補助："+home_allowance+"元");
+      }
     })
   
   
