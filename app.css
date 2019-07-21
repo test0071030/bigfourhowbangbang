@@ -1,18 +1,3 @@
-#not_summer_calculate {
-  display:none;
-  position:absolute;
-}
-
-#summer_calculate {
-  display:none;
-  position:absolute;
-}
-
-#mix_calculate {
-  display:none;
-  position:absolute;
-}
-
 .wrong {
   color:red;
 }
@@ -83,7 +68,7 @@ body {
   height:40vh;
   width:100vw;
   position:absolute;
-  top:65vh;
+  top:68vh;
   font-size:3vh;
 }
 
@@ -92,11 +77,12 @@ body {
   height:40vh;
   width:100vw;
   position:absolute;
-  top:65vh;
+  top:68vh;
   font-size:3vh;
 }
 #not_summer_calculate {
   position:absolute;
+  display:none;
   height:15vh;
   width:100vw;
   font-size:3vh;
@@ -104,6 +90,7 @@ body {
 }
 #summer_calculate {
   position:absolute;
+  display:none;
   height:15vh;
   width:100vw;
   font-size:3vh;
@@ -111,6 +98,7 @@ body {
 }
 #mix_calculate {
   position:absolute;
+  display:none;
   height:15vh;
   width:100vw;
   font-size:3vh;
@@ -124,7 +112,7 @@ body {
   height:5vh;
   width:100vw;
   font-size:4vh;
-  top:85vh;
+  top:90vh;
   left:0vw;
 
 }
@@ -135,6 +123,6 @@ body {
   color:blue;
   height:30vh;
   width:100vw;
-  top:90vh;
+  top:94vh;
   font-size:4.5vh;
 }
