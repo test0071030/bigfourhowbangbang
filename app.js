@@ -1,4 +1,5 @@
 var bang=0;
+var bong=0;
 var fee = [1.63, 2.1, 2.89, 3.79, 4.42, 4.83];
 var index_number = [0,240,660,1000,1400,2000];
 
@@ -12,8 +13,10 @@ $(document).ready(function(){
     }
     fee = [1.63, 2.1, 2.89, 3.79, 4.42, 4.83];
     bang=1;
-    $("#start_calculate").show(1);
     $("#result").hide(1);
+    if(bang>0&&bong>0){
+    $("#start_calculate").show(1);
+  }
   })
   
   $("#season_summer").click(function() {
@@ -25,8 +28,10 @@ $(document).ready(function(){
 
     fee = [1.63, 2.38, 3.52, 4.61, 5.42, 6.13];
     bang=2;
-    $("#start_calculate").show(1);
     $("#result").hide(1);
+    if(bang>0&&bong>0){
+    $("#start_calculate").show(1);
+  }
   })
   
   $("#season_mix").click(function() {
@@ -37,9 +42,33 @@ $(document).ready(function(){
     }
 
     bang=3;
+    $("#result").hide(1);
+    if(bang>0&&bong>0){
     $("#start_calculate").show(1);
+  }
+  })
+
+  $("#not_by_day").click(function(){
+    bong=1;
+    $("#block4_1").show(1);
+    $("#block4_2").hide(1);
+    if(bang>0&&bong>0){
+    $("#start_calculate").show(1);
+    }
     $("#result").hide(1);
   })
+
+  $("#by_day").click(function(){
+    bong=2;
+    $("#block4_1").hide(1);
+    $("#block4_2").show(1);
+    if(bang>0&&bong>0){
+    $("#start_calculate").show(1);
+    }
+    $("#result").hide(1);
+  })
+
+
 
   $("#start_calculate").click(function() {
     var number=[0,0,0,0,0,0];
@@ -56,6 +85,8 @@ $(document).ready(function(){
     var four_final_all=0;
     var home_allowance=0;
     var bababa=0;
+    var cacaca=0;
+
     
     var milk_previous=parseFloat($('#milk_previous').val());
     var black_previous=parseFloat($('#black_previous').val());
@@ -71,13 +102,19 @@ $(document).ready(function(){
 
     var sum_fee=parseFloat($('#sum_fee').val());
 
+
     for (i=0;i<=3;i++){
       four_number[i]=now[i]-previous[i];
       four_sum+=four_number[i];
     }
 
     for (i=0;i<=3;i++){
-      four_percent[i]=four_number[i]/four_sum;
+      if (four_sum==0){
+        four_percent[i]=0;
+      }
+      else{
+        four_percent[i]=four_number[i]/four_sum;
+      }
     }
     
     if (bang==1){
@@ -104,6 +141,14 @@ $(document).ready(function(){
       all_number=parseInt($("#mix_all").val());
     }
 
+    if (bong==2){
+      var milk_day=parseFloat($('#milk_day').val());
+      var black_day=parseFloat($('#black_day').val());
+      var pinch_day=parseFloat($('#pinch_day').val());
+      var king_day=parseFloat($('#king_day').val());
+      var day=[milk_day,black_day,pinch_day,king_day];
+    }
+
     if (all_number>0){
       if(sum_fee>0){
         $("#sum_fee2").removeClass("wrong");
@@ -111,6 +156,7 @@ $(document).ready(function(){
       }
       else{
         $("#sum_fee2").addClass("wrong");
+        $("#result").hide(1);
       }
 
       if(bang==1){
@@ -122,7 +168,17 @@ $(document).ready(function(){
       }
 
       else if(bang==3){
-        $("#mix_calculate").removeClass("wrong");
+        if (parta>=0&&partb>=0&&parta+partb>0){
+
+          $("#mix_calculate").removeClass("wrong");
+
+        }
+
+        else{
+          $("#mix_calculate").addClass("wrong");
+          $("#result").hide(1);
+        }
+
       }
 
       for (i=0;i<=3;i++){
@@ -149,18 +205,22 @@ $(document).ready(function(){
         else if(i==0){
          $("#milk1").addClass("wrong");
          $("#milk2").addClass("wrong");
+         $("#result").hide(1);
         }
         else if(i==1){
           $("#black1").addClass("wrong");
           $("#black2").addClass("wrong");
+          $("#result").hide(1);
         }
         else if(i==2){
          $("#pinch1").addClass("wrong");
          $("#pinch2").addClass("wrong");
+         $("#result").hide(1);
         }
         else if(i==3){
          $("#king1").addClass("wrong");
          $("#king2").addClass("wrong");
+         $("#result").hide(1);
         }
 
       }
@@ -168,18 +228,66 @@ $(document).ready(function(){
 
     else if(bang==1){
       $("#not_summer_calculate").addClass("wrong");
+      $("#result").hide(1);
     }
 
     else if(bang==2){
-      $("#summer_calculate").addClass("wrong");
+        $("#summer_calculate").addClass("wrong");
+    $("#result").hide(1);
     }
 
     else if(bang==3){
       $("#mix_calculate").addClass("wrong");
+      $("#result").hide(1);
     }
+    
+    if (bong==1){
+      cacaca=4;
+    }
+
+    if (bong==2){
+      for (i=0;i<=3;i++){
+        if (day[i]>=0){
+          cacaca+=1;
+          if(i==0){
+            $("#milk3").removeClass("wrong");
+          }
+          else if(i==1){
+            $("#black3").removeClass("wrong");
+          }
+          else if(i==2){
+            $("#pinch3").removeClass("wrong");
+          }
+          else if(i==3){
+            $("#king3").removeClass("wrong");
+          }
+        }
+
+        else if(i==0){
+         $("#milk3").addClass("wrong");
+         $("#result").hide(1);
+        }
+        else if(i==1){
+          $("#black3").addClass("wrong");
+         $("#result").hide(1);
+        }
+        else if(i==2){
+         $("#pinch3").addClass("wrong");
+         $("#result").hide(1);
+        }
+        else if(i==3){
+         $("#king3").addClass("wrong");
+         $("#result").hide(1);
+        }
+      }
+    }
+
+
+
+
     console.log(bababa);
 
-    if (bababa==5){
+    if (bababa==5&&cacaca==4){
 
       for (i=0;i<=5;i++){
       
@@ -220,15 +328,29 @@ $(document).ready(function(){
         four_airsum+=four_use[i]*fee[i];
       }
 
-      four_othersum=sum_fee-four_airsum;
-
       for (i=0;i<=3;i++){
         four_air[i]=four_airsum*four_percent[i];
       }
-    
-      for (i=0;i<=3;i++){
-        four_final[i]=Math.round(four_air[i]+four_othersum/4);
-        four_final_all+=four_final[i];
+
+      four_othersum=sum_fee-four_airsum;
+
+      if (bong==1){
+        for (i=0;i<=3;i++){
+          four_final[i]=Math.round(four_air[i]+four_othersum/4);
+          four_final_all+=four_final[i];
+        }
+      }
+
+      else if (bong==2){
+        var day_sum=0;
+        for (i=0;i<=3;i++){
+          day_sum+=day[i];
+        }
+
+        for (i=0;i<=3;i++){
+          four_final[i]=Math.round(four_air[i]+four_othersum*day[i]/day_sum);
+          four_final_all+=four_final[i];
+        }
       }
 
       home_allowance=sum_fee-four_final_all;

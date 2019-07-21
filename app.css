@@ -17,15 +17,7 @@
   color:red;
 }
 
-#result {
-  position:absolute;
-  display:none;
-  color:blue;
-  height:30vh;
-  width:100vw;
-  top:70vh;
-  font-size:4.5vh;
-}
+
 
 body {
   position:absolute;
@@ -46,10 +38,63 @@ body {
   position:absolute;
   height:5vh;
   width:100vw;
-  font-size:5vh;
-  top:40vh;
+  top:42vh;
 }
 
+#season_not_summer {
+  height:2.5vh;
+  width:28vw;
+  font-size:1.5vh;
+}
+
+#season_summer {
+  height:2.5vh;
+  width:28vw;
+  font-size:1.5vh;
+}
+#season_mix {
+  height:2.5vh;
+  width:28vw;
+  font-size:1.5vh;
+}
+
+
+#block3 {
+  position:absolute;
+  height:5vh;
+  width:100vw;
+  top:47vh;
+}
+
+#not_by_day {
+  height:2.5vh;
+  width:28vw;
+  font-size:1.5vh;
+}
+
+#by_day {
+  height:2.5vh;
+  width:28vw;
+  font-size:1.5vh;
+}
+
+#block4_1 {
+  display:none;
+  height:40vh;
+  width:100vw;
+  position:absolute;
+  top:65vh;
+  font-size:3vh;
+}
+
+#block4_2 {
+  display:none;
+  height:40vh;
+  width:100vw;
+  position:absolute;
+  top:65vh;
+  font-size:3vh;
+}
 #not_summer_calculate {
   position:absolute;
   height:15vh;
@@ -79,8 +124,17 @@ body {
   height:5vh;
   width:100vw;
   font-size:4vh;
-  top:65vh;
+  top:85vh;
   left:0vw;
 
 }
 
+#result {
+  position:absolute;
+  display:none;
+  color:blue;
+  height:30vh;
+  width:100vw;
+  top:90vh;
+  font-size:4.5vh;
+}
