@@ -361,7 +361,7 @@ $(document).ready(function(){
       console.log (four_final);
       console.log (home_allowance);
       
-      $("#result").show(1).html("乃ㄍㄧ："+four_final[0]+"元<br>翹臀隊長："+four_final[1]+"元<br>品ㄍㄧ："+four_final[2]+"元<br>子ㄍㄧ："+four_final[3]+"元<br>家費補助："+home_allowance+"元");
+      $("#result").show(1).html("A："+four_final[0]+"元<br>B："+four_final[1]+"元<br>C："+four_final[2]+"元<br>D："+four_final[3]+"元<br>家費補助："+home_allowance+"元");
       }
     })
   
